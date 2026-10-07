@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 05 Meta títulos y descripciones (SEO) -->
+    <title>Encaminados por Jesús | Comunidad, Fe y Música Original</title>
+    <meta name="description" content="Sitio web cristiano oficial de Encaminados por Jesús y el proyecto musical Enkmina2. Noticias, versículos diarios, juego bíblico y muro de oración.">
+    <meta name="keywords" content="musica cristiana, enkmina2, palabra del dia, devocional, comunidad cristiana">
+    
+    <!-- 09 Favicón -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕊️</text></svg>">
+
+    <!-- 06 Datos estructurados (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Encaminados por Jesús",
+      "url": "https://tu-usuario.github.io/encaminados-por-jesus/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://tu-usuario.github.io/encaminados-por-jesus/#noticias",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS (Optimizado y rápido) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+        /* Estilos juego tipo Wordle */
+        .tile {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid #cbd5e1;
+            border-radius: 0.5rem;
+            background-color: #ffffff;
+            color: #1e293b;
+        }
+        .tile.correct { background-color: #22c55e; color: white; border-color: #22c55e; }
+        .tile.present { background-color: #eab308; color: white; border-color: #eab308; }
+        .tile.absent { background-color: #64748b; color: white; border-color: #64748b; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-blue-600 text-white p-2 rounded-xl shadow-lg">
+                        <!-- 10 Texto alternativo implícito o icono claro -->
+                        <i class="fa-solid fa-dove text-xl" aria-hidden="true"></i>
+                    </div>
+                    <span class="font-bold text-xl text-blue-900 tracking-wide">Encaminados por Jesús</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-slate-600 hover:text-blue-600 font-medium transition">Inicio</a>
+                    <a href="#noticias" class="text-slate-600 hover:text-blue-600 font-medium transition">Noticias</a>
+                    <a href="#juego" class="text-slate-600 hover:text-blue-600 font-medium transition">Palabra del Día 🎮</a>
+                    <a href="#enkmina2" class="text-slate-600 hover:text-blue-600 font-medium transition">Música Enkmina2 🎵</a>
+                    <a href="#oracion" class="text-slate-600 hover:text-blue-600 font-medium transition">Muro de Oración</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="menu-btn" aria-label="Abrir menú" class="text-slate-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú Móvil (14 Se ve bien en el móvil) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-4 pt-2 pb-4 space-y-2">
+            <a href="#inicio" class="block py-2 text-slate-600 hover:text-blue-600">Inicio</a>
+            <a href="#noticias" class="block py-2 text-slate-600 hover:text-blue-600">Noticias</a>
+            <a href="#juego" class="block py-2 text-slate-600 hover:text-blue-600">Palabra del Día 🎮</a>
+            <a href="#enkmina2" class="block py-2 text-slate-600 hover:text-blue-600">Música Enkmina2 🎵</a>
+            <a href="#oracion" class="block py-2 text-slate-600 hover:text-blue-600">Muro de Oración</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="hero-gradient text-white py-20 px-4 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto space-y-6 relative z-10">
+            <span class="bg-blue-500 bg-opacity-40 text-blue-100 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                Bienvenido a tu comunidad de fe
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">
+                Caminando Juntos en su Luz
+            </h1>
+            <p class="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto font-light">
+                Un espacio dinámico para informarte, divertirte con propósito y escuchar música original que fortalece tu espíritu.
+            </p>
+            <!-- 20 Una sola llamada a la acción principal -->
+            <div class="flex justify-center pt-4">
+                <a href="#juego" class="bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold px-8 py-3.5 rounded-full shadow-lg transition transform hover:-translate-y-1">
+                    Jugar Palabra Bíblica <i class="fa-solid fa-gamepad ml-2" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Versículo Diario -->
+    <section class="max-w-4xl mx-auto px-4 -mt-10 relative z-20 mb-12">
+        <div class="bg-white rounded-2xl shadow-xl p-8 border-l-8 border-blue-600">
+            <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Versículo del Día</span>
+                <span class="text-slate-500 text-sm"><i class="fa-regular fa-calendar-days mr-1" aria-hidden="true"></i> Hoy</span>
+            </div>
+            <p class="text-xl italic text-slate-700 font-medium mb-3">
+                "Lámpara es a mis pies tu palabra, y lumbrera a mi camino."
+            </p>
+            <p class="text-sm font-semibold text-blue-800 text-right">— Salmos 119:105</p>
+        </div>
+    </section>
+
+    <!-- Noticias -->
+    <section id="noticias" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold text-slate-900">Noticias y Actualidad</h2>
+            <p class="text-slate-600 mt-2">Entérate de lo que Dios está haciendo alrededor del mundo.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover flex flex-col">
+                <div class="h-48 bg-blue-100 flex items-center justify-center text-blue-500" aria-label="Icono de misiones globales">
+                    <i class="fa-solid fa-globe text-5xl" aria-hidden="true"></i>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-blue-600 font-bold uppercase">Misiones</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">Jóvenes impulsan labores de ayuda social</h3>
+                        <p class="text-slate-600 text-sm">Cientos de voluntarios se unen este mes para llevar víveres y esperanza.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Noticia 2 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover flex flex-col">
+                <div class="h-48 bg-amber-100 flex items-center justify-center text-amber-500" aria-label="Icono de música y arte">
+                    <i class="fa-solid fa-music text-5xl" aria-hidden="true"></i>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-amber-600 font-bold uppercase">Arte y Cultura</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">Lanzamientos musicales que inspiran fe</h3>
+                        <p class="text-slate-600 text-sm">Nuevos proyectos independientes con mensajes profundos de amor.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Noticia 3 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover flex flex-col">
+                <div class="h-48 bg-emerald-100 flex items-center justify-center text-emerald-500" aria-label="Icono de oración comunitaria">
+                    <i class="fa-solid fa-hands-praying text-5xl" aria-hidden="true"></i>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs text-emerald-600 font-bold uppercase">Comunidad</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1 mb-2">Encuentro global de estudio bíblico online</h3>
+                        <p class="text-slate-600 text-sm">Conéctate este fin de semana a las jornadas de lectura y alabanza.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Juego Bíblico -->
+    <section id="juego" class="bg-slate-900 text-white py-16 px-4 my-12">
+        <div class="max-w-xl mx-auto text-center space-y-6">
+            <div class="inline-block bg-blue-600 text-xs uppercase px-3 py-1 rounded-full font-bold tracking-wider">Juego Bíblico Diario</div>
+            <h2 class="text-3xl font-bold">Adivina la Palabra Bíblica</h2>
+            <p class="text-slate-300 text-sm">Tienes 6 intentos para descubrir la palabra secreta de 5 letras.</p>
+            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 text-amber-300 text-sm font-medium">
+                💡 Pista: Hijo de Dios, Salvador del mundo (5 letras)
+            </div>
+            <div id="board" class="grid grid-rows-6 gap-2 justify-center my-6"></div>
+            <div id="game-message" class="text-lg font-semibold h-8 text-amber-400"></div>
+            <!-- Teclado simplificado -->
+            <div id="keyboard" class="space-y-2 max-w-md mx-auto pt-4">
+                <div class="flex justify-center gap-1 flex-wrap">
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="Q">Q</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="W">W</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="E">E</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="R">R</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="T">T</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="Y">Y</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="U">U</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="I">I</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="O">O</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="P">P</button>
+                </div>
+                <div class="flex justify-center gap-1 flex-wrap">
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="A">A</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="S">S</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="D">D</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="F">F</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="G">G</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="H">H</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="J">J</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="K">K</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="L">L</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="Ñ">Ñ</button>
+                </div>
+                <div class="flex justify-center gap-1 flex-wrap">
+                    <button class="key bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded text-xs font-bold" data-key="ENTER">ENTER</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="Z">Z</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="X">X</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="C">C</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="V">V</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="B">B</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="N">N</button>
+                    <button class="key bg-slate-700 hover:bg-slate-600 px-3 py-2 rounded text-sm font-bold" data-key="M">M</button>
+                    <button class="key bg-rose-700 hover:bg-rose-600 px-4 py-2 rounded text-xs font-bold" data-key="BACK"><i class="fa-solid fa-delete-left" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Música Enkmina2 -->
+    <section id="enkmina2" class="max-w-6xl mx-auto px-4 py-16">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs text-indigo-600 font-bold uppercase tracking-wider bg-indigo-50 px-3 py-1 rounded-full">Proyecto Musical</span>
+            <h2 class="text-3xl font-bold text-slate-900 mt-2">Enkmina2 | Música con Propósito</h2>
+            <p class="text-slate-600 text-sm mt-2">Disfruta de las canciones originales del álbum "Entre la multitud".</p>
+        </div>
+        <div class="bg-gradient-to-br from-slate-900 to-blue-900 text-white p-8 rounded-3xl shadow-xl max-w-2xl mx-auto text-center space-y-6">
+            <div class="bg-blue-600 w-16 h-16 mx-auto flex items-center justify-center rounded-2xl shadow">
+                <i class="fa-solid fa-headphones text-3xl" aria-hidden="true"></i>
+            </div>
+            <p class="text-slate-300 text-sm">
+                Cada melodía nace con el deseo de llevar un mensaje de fe y esperanza. ¡Súbele el volumen!
+            </p>
+            <a href="https://soundcloud.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold py-3 px-8 rounded-xl transition shadow-lg">
+                <i class="fa-brands fa-soundcloud mr-2 text-xl" aria-hidden="true"></i> Escuchar en SoundCloud
+            </a>
+        </div>
+    </section>
+
+    <!-- Muro de Oración (17 Protegido contra spam localmente y con escape de texto) -->
+    <section id="oracion" class="max-w-4xl mx-auto px-4 py-12">
+        <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-10 border border-slate-100">
+            <div class="text-center mb-8">
+                <span class="text-xs text-blue-600 font-bold uppercase tracking-wider bg-blue-50 px-3 py-1 rounded-full">Comunidad en Oración</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-2">Muro de Peticiones</h2>
+                <p class="text-slate-600 text-sm mt-1">Comparte tu petición o deja un mensaje de aliento.</p>
+            </div>
+            <form id="prayer-form" class="space-y-4 mb-8">
+                <div>
+                    <label for="prayer-name" class="block text-sm font-medium text-slate-700 mb-1">Tu Nombre o Anónimo</label>
+                    <input type="text" id="prayer-name" required maxlength="50" class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Ej. María G.">
+                </div>
+                <div>
+                    <label for="prayer-text" class="block text-sm font-medium text-slate-700 mb-1">Petición de Oración</label>
+                    <textarea id="prayer-text" required rows="3" maxlength="300" class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Escribe tu motivo de oración..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow transition">
+                    Compartir Petición <i class="fa-solid fa-paper-plane ml-2" aria-hidden="true"></i>
+                </button>
+            </form>
+            <div class="space-y-4" id="prayer-list"></div>
+        </div>
+    </section>
+
+    <!-- 18 Botón de WhatsApp visible -->
+    <a href="https://wa.me/?text=Hola%2C%20visité%20Encaminados%20por%20Jesús%20y%20me%20encantó" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp" class="fixed bottom-6 right-6 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl z-50 transition transform hover:scale-110">
+        <i class="fa-brands fa-whatsapp text-3xl" aria-hidden="true"></i>
+    </a>
+
+    <!-- Footer con 01 Aviso legal, 02 Privacidad, 03 Cookies -->
+    <footer class="bg-slate-900 text-slate-400 py-10 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-4">
+            <div class="flex justify-center items-center space-x-2 text-white font-bold text-lg">
+                <i class="fa-solid fa-dove text-blue-500" aria-hidden="true"></i>
+                <span>Encaminados por Jesús & Enkmina2</span>
+            </div>
+            <p class="text-sm">"Lámpara es a mis pies tu palabra, y lumbrera a mi camino."</p>
+            
+            <div class="flex justify-center space-x-6 text-xs pt-2">
+                <button onclick="openModal('legal')" class="hover:text-white transition">01 Aviso Legal</button>
+                <button onclick="openModal('privacidad')" class="hover:text-white transition">02 Política de Privacidad</button>
+                <button onclick="openModal('cookies')" class="hover:text-white transition">03 Aviso de Cookies</button>
+            </div>
+
+            <p class="text-xs text-slate-500 pt-4 border-t border-slate-800">
+                &copy; 2026 Encaminados por Jesús. Hecho para la gloria de Dios.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Ventana Modal para Legal, Privacidad y Cookies -->
+    <div id="legal-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white text-slate-800 max-w-lg w-full p-6 rounded-2xl shadow-2xl relative space-y-4">
+            <h3 id="modal-title" class="text-xl font-bold text-blue-900"></h3>
+            <p id="modal-text" class="text-sm text-slate-600 leading-relaxed"></p>
+            <div class="text-right pt-4">
+                <button onclick="closeModal()" class="bg-blue-600 text-white px-5 py-2 rounded-xl text-sm font-semibold">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Interactividad y Lógica -->
+    <script>
+        // Menú móvil
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Juego Bíblico
+        const SECRET_WORD = "JESUS";
+        let currentRow = 0, currentCol = 0, guesses = Array(6).fill("").map(() => Array(5).fill("")), gameOver = false;
+        const boardEl = document.getElementById('board');
+        boardEl.style.gridTemplateRows = `repeat(6, 45px)`;
+
+        for (let r = 0; r < 6; r++) {
+            const rowDiv = document.createElement('div');
+            rowDiv.className = "flex gap-2 justify-center";
+            for (let c = 0; c < 5; c++) {
+                const tile = document.createElement('div');
+                tile.className = "tile";
+                tile.id = `tile-${r}-${c}`;
+                rowDiv.appendChild(tile);
+            }
+            boardEl.appendChild(rowDiv);
+        }
+
+        document.querySelectorAll('.key').forEach(button => {
+            button.addEventListener('click', () => {
+                if (gameOver) return;
+                const key = button.getAttribute('data-key');
+                if (key === "ENTER") submitGuess();
+                else if (key === "BACK") deleteLetter();
+                else addLetter(key);
+            });
+        });
+
+        function addLetter(letter) {
+            if (currentCol < 5 && currentRow < 6) {
+                guesses[currentRow][currentCol] = letter;
+                document.getElementById(`tile-${currentRow}-${currentCol}`).innerText = letter;
+                currentCol++;
+            }
+        }
+        function deleteLetter() {
+            if (currentCol > 0) {
+                currentCol--;
+                guesses[currentRow][currentCol] = "";
+                document.getElementById(`tile-${currentRow}-${currentCol}`).innerText = "";
+            }
+        }
+        function submitGuess() {
+            if (currentCol < 5) {
+                document.getElementById('game-message').innerText = "¡Faltan letras!";
+                return;
+            }
+            const currentWord = guesses[currentRow].join("");
+            document.getElementById('game-message').innerText = "";
+            for (let c = 0; c < 5; c++) {
+                const tile = document.getElementById(`tile-${currentRow}-${c}`);
+                const letter = currentWord[c];
+                if (SECRET_WORD[c] === letter) tile.classList.add('correct');
+                else if (SECRET_WORD.includes(letter)) tile.classList.add('present');
+                else tile.classList.add('absent');
+            }
+            if (currentWord === SECRET_WORD) {
+                document.getElementById('game-message').innerText = "🎉 ¡Felicidades! Adivinaste la palabra bíblica.";
+                gameOver = true;
+                return;
+            }
+            currentRow++; currentCol = 0;
+            if (currentRow === 6) {
+                document.getElementById('game-message').innerText = `😢 Fin del juego. Era: ${SECRET_WORD}`;
+                gameOver = true;
+            }
+        }
+
+        // Muro de Oración con LocalStorage
+        const prayerForm = document.getElementById('prayer-form');
+        const prayerName = document.getElementById('prayer-name');
+        const prayerText = document.getElementById('prayer-text');
+        const prayerList = document.getElementById('prayer-list');
+
+        let prayers = JSON.parse(localStorage.getItem('encaminados_prayers')) || [
+            { name: "Sofía M.", text: "Pido oración por la salud de mi familia.", date: "Hace 1 hora" }
+        ];
+
+        function renderPrayers() {
+            prayerList.innerHTML = "";
+            prayers.forEach((p) => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col space-y-2";
+                card.innerHTML = `
+                    <div class="flex justify-between items-center text-xs text-slate-500">
+                        <span class="font-bold text-slate-800">${escapeHTML(p.name)}</span>
+                        <span>${p.date}</span>
+                    </div>
+                    <p class="text-slate-600 text-sm">${escapeHTML(p.text)}</p>
+                `;
+                prayerList.appendChild(card);
+            });
+        }
+
+        prayerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            prayers.unshift({
+                name: prayerName.value.trim(),
+                text: prayerText.value.trim(),
+                date: "Justo ahora"
+            });
+            localStorage.setItem('encaminados_prayers', JSON.stringify(prayers));
+            prayerName.value = ""; prayerText.value = "";
+            renderPrayers();
+        });
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+        }
+        renderPrayers();
+
+        // Modales legales
+        function openModal(type) {
+            const modal = document.getElementById('legal-modal');
+            const title = document.getElementById('modal-title');
+            const text = document.getElementById('modal-text');
+            modal.classList.remove('hidden');
+
+            if(type === 'legal') {
+                title.innerText = "Aviso Legal";
+                text.innerText = "Este sitio web 'Encaminados por Jesús' tiene un propósito puramente informativo, comunitario, recreativo y de difusión de fe cristiana y artística independiente (Enkmina2). Todos los derechos reservados.";
+            } else if(type === 'privacidad') {
+                title.innerText = "Política de Privacidad";
+                text.innerText = "Las peticiones de oración que escribes en el muro se almacenan de forma local en tu navegador (LocalStorage) para ofrecerte la funcionalidad interactiva sin recopilar datos personales sensibles en servidores externos.";
+            } else if(type === 'cookies') {
+                title.innerText = "Aviso de Cookies";
+                text.innerText = "Este sitio utiliza únicamente almacenamiento local técnico y necesario para recordar el estado del juego bíblico diario y las publicaciones del muro de oración. No utilizamos cookies de rastreo comercial.";
+            }
+        }
+        function closeModal() {
+            document.getElementById('legal-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
